@@ -20,6 +20,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        spring:"#adfa1d",
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
