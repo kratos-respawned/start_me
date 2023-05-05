@@ -1,131 +1,97 @@
 import React from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
-
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
+import { CheckCheck, Plus } from "lucide-react";
 import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User,
-  UserPlus,
-  Users,
-} from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 function SiteHeader() {
   return (
     <header className="flex justify-between items-center child:text-sm  p-5  px-20 border-b">
       <div>
-      <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">My pages</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCard className="mr-2 h-4 w-4" />
-            <span>Billing</span>
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Keyboard className="mr-2 h-4 w-4" />
-            <span>Keyboard shortcuts</span>
-            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <Users className="mr-2 h-4 w-4" />
-            <span>Team</span>
-          </DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <UserPlus className="mr-2 h-4 w-4" />
-              <span>Invite users</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>
-                  <Mail className="mr-2 h-4 w-4" />
-                  <span>Email</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  <span>Message</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <PlusCircle className="mr-2 h-4 w-4" />
-                  <span>More...</span>
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuItem>
-            <Plus className="mr-2 h-4 w-4" />
-            <span>New Team</span>
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Github className="mr-2 h-4 w-4" />
-          <span>GitHub</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <LifeBuoy className="mr-2 h-4 w-4" />
-          <span>Support</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          <Cloud className="mr-2 h-4 w-4" />
-          <span>API</span>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline">Open</Button>
+          </SheetTrigger>
+          <SheetContent position="left" size={"sm"} className="min-w-fit">
+            <SheetHeader>
+              <SheetTitle className="flex gap-5 items-center mb-5 ">
+                <Avatar className="w-9 h-9">
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                  My Pages
+                </h2>
+              </SheetTitle>
+              <SheetDescription className="text-left">
+                Make changes to your profile here.
+                <br />
+                Click save when youre done.
+              </SheetDescription>
+            </SheetHeader>
+            <div className="grid gap-4 py-4 mt-7">
+              
+                <Button className="  w-full">
+                  Create new page <Plus className="ml-2" />
+                </Button>
+                <Button className=" w-full border-2 " variant="secondary">
+                  Explore page gallery
+                </Button>
+                
+            </div>
+            <SheetFooter>
+              <Card className="relative  w-full space-y-2 rounded-lg border-2 mt-20">
+                <CardHeader>
+                  <CardTitle className="cursor-default absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                    <p className="rounded-full  py-2 px-4 dark:text-black font-medium text-sm bg-white border  dark:bg-spring  ">
+                      Become Pro
+                    </p>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className=" mx-auto  [&>li]:mt-2">
+                    <li>
+                      <CheckCheck className=" rounded-full h-5 w-5 mr-2 inline-flex" /> Unlimited Pages
+                    </li>
+                    <li>  <CheckCheck className=" rounded-full h-5 w-5 mr-2 inline-flex" />
+                    No advertisements</li>
+                    <li><CheckCheck className=" inline-flex rounded-full h-5 w-5 mr-2" />
+                    All PRO Widgets & Features</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="block ">
+                  <Button className="dark:bg-spring border mx-auto block  ">
+                    Upgrade Now
+                  </Button>
+                  <small className="text-sm mt-3 block text-center font-medium leading-none">
+                    $20/year
+                  </small>
+                </CardFooter>
+              </Card>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
       </div>
       <div className="flex items-center gap-4 ">
         <Button variant="ghost" className="w-11 px-0">
@@ -137,8 +103,6 @@ function SiteHeader() {
           placeholder="Search..."
           className=" md:w-[100px] lg:w-[300px]"
         />
-        {/* <Search className="absolute top-1/2 -translate-y-1/2 opacity-50 h-5 right-2"/> */}
-
         <Button variant="ghost" className="w-9 h-9 rounded-full bg-red-500">
           <Avatar className="w-9 h-9">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
